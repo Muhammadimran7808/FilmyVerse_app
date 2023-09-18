@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TailSpin } from "react-loader-spinner";
 import { addDoc } from "firebase/firestore";
-import { moviesCollectionRef } from "./firebase/firebase";
+import { moviesCollectionRef } from "../firebase/firebase";
 import swal from "sweetalert";
 
 
@@ -10,7 +10,7 @@ const AddMovie = () => {
   // useState that handle form data (add movie form)
   const [form, setForm] = useState({
     title: "",
-    year: '',
+    year: "",
     description: "",
     image: ""
   });
@@ -29,8 +29,15 @@ const AddMovie = () => {
         buttons: false,
         timer: 3000
       })
+      // Blank all field after add movie
+      setForm({
+        title: "",
+        year: "",
+        description: "",
+        image: ""
+      })
     }
-    catch(err){
+    catch (err) {
       swal({
         title: err,
         icon: "error",
