@@ -12,9 +12,12 @@ body{
     border-radius: 5px;
 }
 .header{
-    background-color: rgb(45, 45, 45);
+    background-color: rgb(40, 40, 40);
 }
 .review-input{
     background-color: rgb(55, 55, 55);
+}
+.review-bg{
+    background-color: rgb(35, 35, 35);
 }
 

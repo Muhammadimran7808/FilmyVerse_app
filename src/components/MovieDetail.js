@@ -43,15 +43,15 @@ const MovieDetail = () => {
                                 size={20}
                                 isHalf={true}
                                 edit={false}
-                                value={data.rating/data.rated}
+                                value={data.rating / data.rated}
                             />
                             <p className='mt-2 md:mt-4 text-lg md:text-xl'>{data.description}</p>
 
                             {/* Reviews Component */}
-                            <Reviews id={id} prevRating={data.rating} userRated = {data.rated}/>
+                            <Reviews id={id} prevRating={data.rating} userRated={data.rated} />
 
                             {/* GetReviews component */}
-                            <GetReviews id={id}/>
+                            <GetReviews id={id} />
                         </div>
                     </>
             }
