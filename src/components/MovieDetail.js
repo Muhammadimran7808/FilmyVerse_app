@@ -5,6 +5,7 @@ import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
 import { ThreeDots } from 'react-loader-spinner';
 import Reviews from './Reviews';
+import GetReviews from './GetReviews';
 
 const MovieDetail = () => {
     const { id } = useParams();
@@ -48,6 +49,9 @@ const MovieDetail = () => {
 
                             {/* Reviews Component */}
                             <Reviews id={id} prevRating={data.rating} userRated = {data.rated}/>
+
+                            {/* GetReviews component */}
+                            <GetReviews id={id}/>
                         </div>
                     </>
             }

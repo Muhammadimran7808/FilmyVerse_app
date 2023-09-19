@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import ReactStars from "react-rating-stars-component";
 import { reviewsCollectionRef, db } from '../firebase/firebase';
-import { addDoc, doc, updateDoc, getDocs } from 'firebase/firestore';
+import { addDoc, doc, updateDoc } from 'firebase/firestore';
 import { TailSpin } from 'react-loader-spinner';
 import swal from 'sweetalert';
 
@@ -47,13 +47,6 @@ const Reviews = ({ id, prevRating, userRated }) => {
         }
     }
 
-    // Show reviews in movie detail page
-    useEffect(()=>{
-        async function getReviews(){
-            let reviewRef = doc
-        }
-    },[])
-
     return (
         <div className='mt-3 pt-6 mb-10 w-full border-t-2 border-gray-700'>
             <ReactStars
@@ -75,6 +68,10 @@ const Reviews = ({ id, prevRating, userRated }) => {
                 {loading ? <TailSpin height={25} color='#fff' /> : <span className=' font-bold text-lg text-black'>Share</span>}
             </button>
 
+
+            {
+
+            }
         </div>
     )
 }
