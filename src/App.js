@@ -3,19 +3,34 @@ import Cards from "./components/Cards";
 import AddMovie from "./components/AddMovie";
 import { Route, Routes } from "react-router-dom";
 import MovieDetail from "./components/MovieDetail";
+import { createContext, useState } from "react";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+
+const appstate = createContext();
 
 function App() {
+  const [login, setLogin] = useState(false);
+  const [userName, setUserName] = useState("");
+
+
+
   return (
-    <div className="App">
-      <Header />
-      <Routes>
-        <Route path="/" element={<Cards />} />
-        <Route path="/addmovie" element={<AddMovie />} />
-        <Route path="/detail/:id" element={<MovieDetail />} />
-      </Routes>
-    </div>
+    <appstate.Provider value={{ login, userName, setLogin, setUserName }}>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Cards />} />
+          <Route path="/addmovie" element={<AddMovie />} />
+          <Route path="/detail/:id" element={<MovieDetail />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+      </div>
+    </appstate.Provider>
   );
 }
 
 export default App;
+export { appstate };
 
