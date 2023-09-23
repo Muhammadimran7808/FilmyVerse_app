@@ -4,8 +4,11 @@ import { reviewsCollectionRef, db } from '../firebase/firebase';
 import { addDoc, doc, updateDoc } from 'firebase/firestore';
 import { TailSpin } from 'react-loader-spinner';
 import swal from 'sweetalert';
-
+import { useContext } from 'react';
+import { appstate } from '../App';
 const Reviews = ({ id, prevRating, userRated }) => {
+    const useAppstate = useContext(appstate)
+
     const [rating, setRating] = useState(0)
     const [loading, setLoading] = useState(false)
     const [thought, setThought] = useState("")
@@ -16,7 +19,7 @@ const Reviews = ({ id, prevRating, userRated }) => {
             setLoading(true)
             await addDoc(reviewsCollectionRef, {
                 movieid: id,
-                username: "M.imran",
+                username: useAppstate.userName,
                 rating: rating,
                 thought: thought,
                 timestemp: new Date().getTime()
