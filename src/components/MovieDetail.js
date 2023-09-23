@@ -50,8 +50,6 @@ const MovieDetail = () => {
                             {/* Reviews Component */}
                             <Reviews id={id} prevRating={data.rating} userRated={data.rated} />
 
-                            {/* GetReviews component */}
-                            <GetReviews id={id} />
                         </div>
                     </>
             }

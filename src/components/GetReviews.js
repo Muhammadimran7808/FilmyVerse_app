@@ -4,7 +4,7 @@ import { reviewsCollectionRef } from '../firebase/firebase';
 import { ThreeDots } from 'react-loader-spinner';
 import ReactStars from "react-rating-stars-component";
 
-const GetReviews = ({ id }) => {
+const GetReviews = ({ id, updateRev }) => {
     const [loading, setLoading] = useState(false)
     // Show reviews in movie detail page
     const [review, setReview] = useState([]);
@@ -12,6 +12,7 @@ const GetReviews = ({ id }) => {
     useEffect(() => {
         async function getReviews() {
             setLoading(true)
+            setReview([])
             let quer = query(reviewsCollectionRef, where("movieid", "==", id))
             let querySnapshot = await getDocs(quer)
             querySnapshot.forEach((doc) => {
@@ -21,11 +22,11 @@ const GetReviews = ({ id }) => {
         }
         getReviews()
 
-    }, [])
+    }, [updateRev])
 
     return (
-        loading ? <div className='flex justify-center mb-16'><ThreeDots color='#fff' height={15} /> </div> :
-            <div className='mb-16'>
+        loading ? <div className='flex justify-center mt-16'><ThreeDots color='#fff' height={15} /> </div> :
+            <div className='mb-16 mt-8'>
                 {
                     review.map((e, i) => {
                         return (

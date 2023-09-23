@@ -10,25 +10,25 @@ import Signup from "./components/Signup";
 const appstate = createContext();
 
 function App() {
-  const [login, setLogin] = useState(false);
-  const [userName, setUserName] = useState("");
+    const [login, setLogin] = useState(false);
+    const [userName, setUserName] = useState("");
 
 
 
-  return (
-    <appstate.Provider value={{ login, userName, setLogin, setUserName }}>
-      <div className="App">
-        <Header />
-        <Routes>
-          <Route path="/" element={<Cards />} />
-          <Route path="/addmovie" element={<AddMovie />} />
-          <Route path="/detail/:id" element={<MovieDetail />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-        </Routes>
-      </div>
-    </appstate.Provider>
-  );
+    return (
+        <appstate.Provider value={{ login, userName, setLogin, setUserName }}>
+            <div className="App">
+                <Header />
+                <Routes>
+                    <Route path="/" element={<Cards />} />
+                    <Route path="/addmovie" element={<AddMovie />} />
+                    <Route path="/detail/:id" element={<MovieDetail />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/signup" element={<Signup />} />
+                </Routes>
+            </div>
+        </appstate.Provider>
+    );
 }
 
 export default App;
