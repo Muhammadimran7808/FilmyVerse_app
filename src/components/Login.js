@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { ColorRing, TailSpin } from 'react-loader-spinner'
+import { TailSpin } from 'react-loader-spinner'
 import { Link, useNavigate } from 'react-router-dom'
 import { query, where, getDocs } from 'firebase/firestore'
 import { userCollectionRef, } from '../firebase/firebase';
@@ -22,12 +22,12 @@ const Login = () => {
         try {
 
             const quer = query(userCollectionRef, where("mobile", "==", form.mobile))
-            
+
             const querySnapshot = await getDocs(quer)
             querySnapshot.forEach((doc) => {
 
                 const _data = doc.data();
-                
+
                 const isUser = bcrypt.compareSync(form.password, _data.password); // true or false
                 if (isUser) {
                     useAppstate.setLogin(true)
@@ -38,6 +38,10 @@ const Login = () => {
                         timer: 3000
                     });
                     navigate('/')
+
+                    // set user login state in cookie
+                    setCookie("login",true,2)
+                    
                 } else {
                     swal({
                         text: "Invalid Number or Password! Try again",
@@ -53,6 +57,14 @@ const Login = () => {
 
         }
         setLoading(false)
+    }
+
+    // function that store user login state in cookie
+    function setCookie(cname, cvalue, exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        let expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     }
 
     return (

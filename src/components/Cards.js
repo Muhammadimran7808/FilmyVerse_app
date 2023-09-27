@@ -39,7 +39,7 @@ const Cards = () => {
                                             size={20}
                                             isHalf={true}
                                             edit={false}
-                                            value={e.rating/e.rated}
+                                            value={e.rated ? e.rating / e.rated : 0}  //value={e.rated ? e.rating / e.rated : 0} 
                                         />
                                     </h1>
                                     <h2>Year : {e.year}</h2>

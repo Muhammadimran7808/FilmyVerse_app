@@ -6,12 +6,34 @@ import MovieDetail from "./components/MovieDetail";
 import { createContext, useState } from "react";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import { useEffect } from "react";
 
 const appstate = createContext();
 
 function App() {
     const [login, setLogin] = useState(false);
     const [userName, setUserName] = useState("");
+
+    useEffect(()=>{
+        function getCookie(name) {
+            const cookies = document.cookie.split('; ');
+            for (const cookie of cookies) {
+                const [cookieName, cookieValue] = cookie.split('=');
+                if (cookieName === name) {
+                    return cookieValue === 'true';
+                }
+            }
+            return false; // Return false if the cookie is not found
+        }
+
+        // Usage
+        const isLoggedIn = getCookie('login');
+
+        if (isLoggedIn) {
+            setLogin(true)
+        }
+
+    },[])
 
 
 

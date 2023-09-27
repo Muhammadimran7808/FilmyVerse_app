@@ -5,7 +5,6 @@ import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
 import { ThreeDots } from 'react-loader-spinner';
 import Reviews from './Reviews';
-import GetReviews from './GetReviews';
 
 const MovieDetail = () => {
     const { id } = useParams();
@@ -43,7 +42,7 @@ const MovieDetail = () => {
                                 size={20}
                                 isHalf={true}
                                 edit={false}
-                                value={data.rating / data.rated}
+                                value={data.rated ? data.rating / data.rated : 0}
                             />
                             <p className='mt-2 md:mt-4 text-lg md:text-xl'>{data.description}</p>
 

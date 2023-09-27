@@ -14,9 +14,9 @@
 
 # misc
 .DS_Store
-/src/firebase
 
 .env.local
+.env
 .env.development.local
 .env.test.local
 .env.production.local
