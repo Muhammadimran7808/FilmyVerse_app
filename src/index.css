@@ -21,3 +21,27 @@ body{
     background-color: rgb(35, 35, 35);
 }
 
+.swal-title {
+    text-align: center;
+    color: #fff;
+}
+.swal-text {
+    text-align: center;
+    color: #fff;
+}
+.swal-modal {
+    background-color: rgb(8, 8, 8);
+    border: 1.5px solid white;
+}
+.swal-overlay {
+    background-color: rgba(1, 1, 1, 0.721);
+}
+.swal-button {
+    padding: 7px 19px;
+    border-radius: 2px;
+    background-color: #4962B3;
+    font-size: 12px;
+    border: 1px solid #3e549a;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+}
+

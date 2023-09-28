@@ -33,14 +33,15 @@ const Login = () => {
                     useAppstate.setLogin(true)
                     useAppstate.setUserName(_data.name)
                     swal({
-                        text: "Login successfully",
-                        buttons: false,
-                        timer: 3000
-                    });
+                        title: `Wellcome Back Sweet ${_data.name}`,
+                        timer: 4000,
+                        buttons: 'close'
+                    })
                     navigate('/')
 
                     // set user login state in cookie
                     setCookie("login",true,2)
+                    setCookie("userName", _data.name,2)
                     
                 } else {
                     swal({
