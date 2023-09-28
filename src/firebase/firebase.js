@@ -10,7 +10,6 @@ const firebaseConfig = {
     messagingSenderId: `${process.env.REACT_APP_MESSAGINGSENDER_ID}`,
     appId: `${process.env.REACT_APP_APP_ID}`
 };
-console.log(firebaseConfig)
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
