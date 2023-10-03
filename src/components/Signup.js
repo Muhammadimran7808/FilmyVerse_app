@@ -51,16 +51,16 @@ const Signup = () => {
                     setLoading(false)
                     setOptwindow(true)
                 })
-                // .catch((error) => {
-                //     swal({
-                //         text: error,
-                //         icon: "error",
-                //         buttons: false,
-                //         timer: 3000
-                //     });
-                // });
+                .catch((error) => {
+                    swal({
+                        text: error.message,
+                        icon: "error",
+                        buttons: false,
+                        timer: 3000
+                    });
+                });
         }
-        else{
+        else {
             swal({
                 text: "Please fill all feild",
                 icon: "error",
@@ -72,7 +72,6 @@ const Signup = () => {
 
     const verifyOTP = async () => {
         try {
-            uploadData()
 
             setLoading(true)
             window.confirmationResult.confirm(OTP).then((result) => {
@@ -82,8 +81,16 @@ const Signup = () => {
                     buttons: false,
                     timer: 3000
                 })
-                setLoading(false);
                 navigate('/login')
+                uploadData()
+            }).catch(() => {
+                swal({
+                    text: "Invalid OTP!",
+                    icon: "error",
+                    buttons: false,
+                    timer: 3000
+                })
+                setLoading(false);
             })
         } catch (error) {
             setLoading(false)

@@ -33,11 +33,10 @@ const Login = () => {
                     useAppstate.setLogin(true)
                     useAppstate.setUserName(_data.name)
                     swal({
-                        title: `Wellcome Back Sweet ${_data.name}`,
+                        title: `Wellcome Back ${_data.name}`,
                         timer: 4000,
                         buttons: 'close',
-                        className: 'model-bg',
-                        className: 'text-color'
+                        className: 'model-box'
                     })
                     navigate('/')
 

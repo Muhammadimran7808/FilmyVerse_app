@@ -41,7 +41,7 @@ const Reviews = ({ id, prevRating, userRated }) => {
                 setRating(0)
                 setThought("")
                 swal({
-                    title: "Review Sent",
+                    text: "Review Sent",
                     icon: "success",
                     buttons: false,
                     timer: 3000

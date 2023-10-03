@@ -22,14 +22,10 @@ body{
 }
 
  .swal-title {
-    text-align: center;
     color: #fff;
 }
-.text-color {
-    text-align: center;
-    color: #000;
-}
-.model-bg {
+
+.model-box {
     background-color: rgb(8, 8, 8);
     border: 1.5px solid white;
 }
