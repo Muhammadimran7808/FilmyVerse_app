@@ -21,15 +21,15 @@ body{
     background-color: rgb(35, 35, 35);
 }
 
-.swal-title {
+ .swal-title {
     text-align: center;
     color: #fff;
 }
-.swal-text {
+.text-color {
     text-align: center;
-    color: #fff;
+    color: #000;
 }
-.swal-modal {
+.model-bg {
     background-color: rgb(8, 8, 8);
     border: 1.5px solid white;
 }

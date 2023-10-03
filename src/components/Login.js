@@ -35,7 +35,9 @@ const Login = () => {
                     swal({
                         title: `Wellcome Back Sweet ${_data.name}`,
                         timer: 4000,
-                        buttons: 'close'
+                        buttons: 'close',
+                        className: 'model-bg',
+                        className: 'text-color'
                     })
                     navigate('/')
 

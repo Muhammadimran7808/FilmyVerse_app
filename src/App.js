@@ -7,7 +7,6 @@ import { createContext, useState } from "react";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import { useEffect } from "react";
-import swal from "sweetalert";
 
 const appstate = createContext();
 
@@ -31,12 +30,6 @@ function App() {
         const isLoggedIn = getCookie('login');
         if (isLoggedIn) {
             setLogin(true)
-            // swal({
-            //     title: `Wellcome Back Sweet ${userName}`,
-            //     timer: 3000,
-            //     className: 'sweet-bg',
-            //     buttons: 'close'
-            // })
         }
     },[])
 
