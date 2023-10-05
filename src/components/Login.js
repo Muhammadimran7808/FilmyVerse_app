@@ -18,12 +18,12 @@ const Login = () => {
 
 
     // This function is invoked when Ph. No. or pasword are incorrect 
-    const invalidCredential = () => {
+    const invalidCredential = (message) => {
         swal({
-            text: "Invalid Number or Password! Try again",
+            text: message,
             icon: "error",
             buttons: false,
-            timer: 3000
+            timer: 4000
         });
     }
 
@@ -40,7 +40,7 @@ const Login = () => {
             const docs = querySnapshot.docs;
             const size = docs.length;
             if (size === 0) {
-                invalidCredential()
+                invalidCredential("No account found with the info that you provided!!")
             }
             querySnapshot.forEach((doc) => {
 
@@ -63,7 +63,7 @@ const Login = () => {
                     setCookie("userName", _data.name, 2)
 
                 } else {
-                    invalidCredential();
+                    invalidCredential("Invalid Password! Try again");
                 }
             });
 
