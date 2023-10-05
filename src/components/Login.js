@@ -16,6 +16,17 @@ const Login = () => {
     })
     const [loading, setLoading] = useState(false)
 
+
+    // This function is invoked when Ph. No. or pasword are incorrect 
+    const invalidCredential = () => {
+        swal({
+            text: "Invalid Number or Password! Try again",
+            icon: "error",
+            buttons: false,
+            timer: 3000
+        });
+    }
+
     // Login logic function
     const login = async () => {
         setLoading(true)
@@ -24,12 +35,19 @@ const Login = () => {
             const quer = query(userCollectionRef, where("mobile", "==", form.mobile))
 
             const querySnapshot = await getDocs(quer)
+
+            // checking input number exists in database
+            const docs = querySnapshot.docs;
+            const size = docs.length;
+            if (size === 0) {
+                invalidCredential()
+            }
             querySnapshot.forEach((doc) => {
 
                 const _data = doc.data();
 
                 const isUser = bcrypt.compareSync(form.password, _data.password); // true or false
-                if (isUser) {
+                if (isUser && size === 1) {
                     useAppstate.setLogin(true)
                     useAppstate.setUserName(_data.name)
                     swal({
@@ -41,16 +59,11 @@ const Login = () => {
                     navigate('/')
 
                     // set user login state in cookie
-                    setCookie("login",true,2)
-                    setCookie("userName", _data.name,2)
-                    
+                    setCookie("login", true, 2)
+                    setCookie("userName", _data.name, 2)
+
                 } else {
-                    swal({
-                        text: "Invalid Number or Password! Try again",
-                        icon: "error",
-                        buttons: false,
-                        timer: 3000
-                    });
+                    invalidCredential();
                 }
             });
 
