@@ -47,7 +47,7 @@ const Login = () => {
                 const _data = doc.data();
 
                 const isUser = bcrypt.compareSync(form.password, _data.password); // true or false
-                if (isUser && size === 1) {
+                if (isUser) {
                     useAppstate.setLogin(true)
                     useAppstate.setUserName(_data.name)
                     swal({
