@@ -20,7 +20,7 @@ function App() {
             for (const cookie of cookies) {
                 const [cookieName, cookieValue] = cookie.split('=');
                 if (cookieName === name) {
-                    return cookieValue === 'true';
+                    return cookieValue;
                 }
             }
             return false; // Return false if the cookie is not found
@@ -28,8 +28,10 @@ function App() {
 
         // Usage
         const isLoggedIn = getCookie('login');
+        const userName = getCookie('userName');
         if (isLoggedIn) {
             setLogin(true)
+            setUserName(userName)
         }
     },[])
 
